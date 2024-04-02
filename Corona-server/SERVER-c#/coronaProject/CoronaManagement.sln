@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryServer", "CoronaManagement\QueryServer.csproj", "{4730AF06-7B1B-42DA-B073-0E096DA80442}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTestServer", "ClientTestServer\ClientTestServer.csproj", "{844DB1A8-1382-4387-9F84-F971D9F3B91C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4730AF06-7B1B-42DA-B073-0E096DA80442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4730AF06-7B1B-42DA-B073-0E096DA80442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4730AF06-7B1B-42DA-B073-0E096DA80442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4730AF06-7B1B-42DA-B073-0E096DA80442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844DB1A8-1382-4387-9F84-F971D9F3B91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844DB1A8-1382-4387-9F84-F971D9F3B91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844DB1A8-1382-4387-9F84-F971D9F3B91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844DB1A8-1382-4387-9F84-F971D9F3B91C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8439083-DE4A-4D53-9FF7-1C376F89DA05}
+	EndGlobalSection
+EndGlobal

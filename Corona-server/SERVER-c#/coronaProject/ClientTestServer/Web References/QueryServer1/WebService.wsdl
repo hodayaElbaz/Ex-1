@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://microsoft.com/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://microsoft.com/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/webservices/">
+      <s:element name="ReadOneMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:GetMemberParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetMemberParameter">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReadOneMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadOneMemberResult" type="tns:GetMemberResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetMemberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="memberObj" type="tns:ClassMember" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ClassResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="systemErrors" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClassMember">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="memberName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="memberTel1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="memberTel2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="memberAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="memberEmail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReadAllMemberExaminations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:GetMemberExaminationParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetMemberExaminationParameter">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReadAllMemberExaminationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadAllMemberExaminationsResult" type="tns:GetMemberExaminationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetMemberExaminationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="listMemberExaminations" type="tns:ArrayOfClassExamination" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClassExamination">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClassExamination" nillable="true" type="tns:ClassExamination" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClassExamination">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="memberID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="examinationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dateTimeResult" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="dateTimeVaccination" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dateTimeaRecovery" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="manufacturer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReadMembers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:GetMemberParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMembersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadMembersResult" type="tns:GetMembersResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetMembersResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="listMembers" type="tns:ArrayOfClassMember" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfClassMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClassMember" nillable="true" type="tns:ClassMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOneMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:UpdateMemberParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateMemberParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objMember" type="tns:ClassMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOneMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateOneMemberResult" type="tns:UpdateMemberResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateMemberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UpdateOneMemberExamination">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:UpdateMemberExaminationParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateMemberExaminationParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objMemberExamination" type="tns:ClassExamination" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateOneMemberExaminationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateOneMemberExaminationResult" type="tns:UpdateMemberExaminationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateMemberExaminationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateOneMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:CreateMemberParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateMemberParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objMember" type="tns:ClassMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateOneMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOneMemberResult" type="tns:CreateMemberResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateMemberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CreateOneMemberExaminationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:CreateMemberExaminationParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateMemberExaminationParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objMemberExamination" type="tns:ClassExamination" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateOneMemberExaminationResponseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOneMemberExaminationResponseResult" type="tns:CreateMemberExaminationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateMemberExaminationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="DeleteOneMember">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:DeleteMemberParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeleteMemberParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objMember" type="tns:ClassMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteOneMemberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteOneMemberResult" type="tns:DeleteMemberResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeleteMemberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="DeleteOneMemberExamination">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pObjParamter" type="tns:DeleteMemberExaminationParameter" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeleteMemberExaminationParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="objMemberExamination" type="tns:ClassExamination" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteOneMemberExaminationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteOneMemberExaminationResult" type="tns:DeleteMemberExaminationResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeleteMemberExaminationResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClassResponse" />
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReadOneMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadOneMember" />
+  </wsdl:message>
+  <wsdl:message name="ReadOneMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadOneMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadAllMemberExaminationsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadAllMemberExaminations" />
+  </wsdl:message>
+  <wsdl:message name="ReadAllMemberExaminationsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadAllMemberExaminationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadMembersSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadMembers" />
+  </wsdl:message>
+  <wsdl:message name="ReadMembersSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadMembersResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOneMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOneMember" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOneMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOneMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOneMemberExaminationSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateOneMemberExamination" />
+  </wsdl:message>
+  <wsdl:message name="UpdateOneMemberExaminationSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateOneMemberExaminationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOneMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOneMember" />
+  </wsdl:message>
+  <wsdl:message name="CreateOneMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOneMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOneMemberExaminationResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOneMemberExaminationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOneMemberExaminationResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOneMemberExaminationResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOneMemberSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteOneMember" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOneMemberSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteOneMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOneMemberExaminationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteOneMemberExamination" />
+  </wsdl:message>
+  <wsdl:message name="DeleteOneMemberExaminationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteOneMemberExaminationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="ReadOneMember">
+      <wsdl:input message="tns:ReadOneMemberSoapIn" />
+      <wsdl:output message="tns:ReadOneMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllMemberExaminations">
+      <wsdl:input message="tns:ReadAllMemberExaminationsSoapIn" />
+      <wsdl:output message="tns:ReadAllMemberExaminationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMembers">
+      <wsdl:input message="tns:ReadMembersSoapIn" />
+      <wsdl:output message="tns:ReadMembersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOneMember">
+      <wsdl:input message="tns:UpdateOneMemberSoapIn" />
+      <wsdl:output message="tns:UpdateOneMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOneMemberExamination">
+      <wsdl:input message="tns:UpdateOneMemberExaminationSoapIn" />
+      <wsdl:output message="tns:UpdateOneMemberExaminationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneMember">
+      <wsdl:input message="tns:CreateOneMemberSoapIn" />
+      <wsdl:output message="tns:CreateOneMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneMemberExaminationResponse">
+      <wsdl:input message="tns:CreateOneMemberExaminationResponseSoapIn" />
+      <wsdl:output message="tns:CreateOneMemberExaminationResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOneMember">
+      <wsdl:input message="tns:DeleteOneMemberSoapIn" />
+      <wsdl:output message="tns:DeleteOneMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOneMemberExamination">
+      <wsdl:input message="tns:DeleteOneMemberExaminationSoapIn" />
+      <wsdl:output message="tns:DeleteOneMemberExaminationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReadOneMember">
+      <soap:operation soapAction="http://microsoft.com/webservices/ReadOneMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllMemberExaminations">
+      <soap:operation soapAction="http://microsoft.com/webservices/ReadAllMemberExaminations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMembers">
+      <soap:operation soapAction="http://microsoft.com/webservices/ReadMembers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOneMember">
+      <soap:operation soapAction="http://microsoft.com/webservices/UpdateOneMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOneMemberExamination">
+      <soap:operation soapAction="http://microsoft.com/webservices/UpdateOneMemberExamination" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneMember">
+      <soap:operation soapAction="http://microsoft.com/webservices/CreateOneMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneMemberExaminationResponse">
+      <soap:operation soapAction="http://microsoft.com/webservices/CreateOneMemberExaminationResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOneMember">
+      <soap:operation soapAction="http://microsoft.com/webservices/DeleteOneMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOneMemberExamination">
+      <soap:operation soapAction="http://microsoft.com/webservices/DeleteOneMemberExamination" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReadOneMember">
+      <soap12:operation soapAction="http://microsoft.com/webservices/ReadOneMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllMemberExaminations">
+      <soap12:operation soapAction="http://microsoft.com/webservices/ReadAllMemberExaminations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMembers">
+      <soap12:operation soapAction="http://microsoft.com/webservices/ReadMembers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOneMember">
+      <soap12:operation soapAction="http://microsoft.com/webservices/UpdateOneMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOneMemberExamination">
+      <soap12:operation soapAction="http://microsoft.com/webservices/UpdateOneMemberExamination" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneMember">
+      <soap12:operation soapAction="http://microsoft.com/webservices/CreateOneMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneMemberExaminationResponse">
+      <soap12:operation soapAction="http://microsoft.com/webservices/CreateOneMemberExaminationResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOneMember">
+      <soap12:operation soapAction="http://microsoft.com/webservices/DeleteOneMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOneMemberExamination">
+      <soap12:operation soapAction="http://microsoft.com/webservices/DeleteOneMemberExamination" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="https://localhost:44384/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="https://localhost:44384/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

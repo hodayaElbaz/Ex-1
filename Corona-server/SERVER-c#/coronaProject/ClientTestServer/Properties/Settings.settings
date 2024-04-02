@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClientTestServer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ClientTestServer_QueryServer_WebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44384/WebService.asmx</Value>
+    </Setting>
+    <Setting Name="ClientTestServer_QueryServer1_WebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://localhost:44384/WebService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
